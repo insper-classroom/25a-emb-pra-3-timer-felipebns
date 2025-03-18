@@ -73,13 +73,13 @@ int main() {    stdio_init_all();
         
         if (strcmp(str, "start!") == 0) {
 
-            int ch = 0;
             while (1) {
                 sleep_ms(750);
                 
-                ch = getchar_timeout_us(20);
+                int ch2 = 0;
+                ch2 = getchar_timeout_us(20);
 
-                if (ch == 'x') {
+                if (ch2 == 'x') {
                     break;
                 }
 
@@ -97,11 +97,11 @@ int main() {    stdio_init_all();
                     timer_fired = 0;
                 } else {
                     echo = 0;
-                    datetime_t t = {0};
-                    rtc_get_datetime(&t);
+                    datetime_t t2 = {0};
+                    rtc_get_datetime(&t2);
                     char datetime_buf[256];
                     char *datetime_str = &datetime_buf[0];
-                    datetime_to_str(datetime_str, sizeof(datetime_buf), &t);
+                    datetime_to_str(datetime_str, sizeof(datetime_buf), &t2);
     
                     uint64_t dt = end_us - start_us; 
                     if ((dt*vel_som)/2 > 300) {
